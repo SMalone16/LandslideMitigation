@@ -224,6 +224,7 @@ section {
 }
 
 .iframe-wrapper {
+  position: relative;
   aspect-ratio: 4 / 3;
   border-radius: 1rem;
   overflow: hidden;
@@ -236,6 +237,23 @@ section {
   border: none;
 }
 
+.iframe-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--text);
+}
+
+.iframe-fallback .external-link {
+  margin: 0;
+}
 .helper-list {
   margin: 0;
   padding-left: 1.2rem;

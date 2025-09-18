@@ -86,18 +86,29 @@
           </p>
           <div class="iframe-wrapper" role="region" aria-label="IPCC Interactive Atlas">
             <iframe
+              id="ipcc-frame"
               title="IPCC Interactive Atlas"
               loading="lazy"
-              src="https://interactive-atlas.ipcc.ch/"
+              src="https://interactive-atlas.ipcc.ch/regional-information"
               allowfullscreen
             ></iframe>
+            <div id="ipcc-fallback" class="iframe-fallback" hidden>
+              <p>
+                If the atlas does not appear, tap the button below to open it in a
+                new tab. Some browsers block this map from loading inside other
+                pages.
+              </p>
+              <a class="external-link" href="https://interactive-atlas.ipcc.ch/regional-information" target="_blank" rel="noopener"
+                >Open the IPCC Interactive Atlas</a
+              >
+            </div>
           </div>
           <ul class="helper-list">
             <li>Click Layers → Hazards → Landslides.</li>
             <li>Slide the time bar to compare today and future years.</li>
             <li>Use the legend to match colors with stronger storms.</li>
           </ul>
-          <a class="external-link" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener">Open in a new tab</a>
+          <a class="external-link" href="https://interactive-atlas.ipcc.ch/regional-information" target="_blank" rel="noopener">Open in a new tab</a>
         </article>
 
         <article class="map-panel" aria-labelledby="nasa-title">

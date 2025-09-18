@@ -8,6 +8,33 @@ const earthForm = document.querySelector('.earth-form');
 const earthInput = document.getElementById('earth-search');
 const hotspotButtons = document.querySelectorAll('.hotspots button');
 const causeCards = document.querySelectorAll('.cause-card');
+const ipccFrame = document.getElementById('ipcc-frame');
+const ipccFallback = document.getElementById('ipcc-fallback');
+
+if (ipccFrame && ipccFallback) {
+  const revealFallback = () => {
+    ipccFallback.hidden = false;
+  };
+
+  const fallbackTimer = window.setTimeout(revealFallback, 6000);
+
+  ipccFrame.addEventListener('load', () => {
+    window.clearTimeout(fallbackTimer);
+    try {
+      const doc = ipccFrame.contentDocument;
+      if (!doc || !doc.body || doc.body.children.length === 0) {
+        revealFallback();
+      }
+    } catch (error) {
+      // Cross-origin access is expected when the embed loads successfully.
+    }
+  });
+
+  ipccFrame.addEventListener('error', () => {
+    window.clearTimeout(fallbackTimer);
+    revealFallback();
+  });
+}
 
 if (audioToggle && narration) {
   audioToggle.addEventListener('click', () => {
