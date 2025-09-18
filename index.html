@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mudslide Explorers Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top-nav" aria-label="Main">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🌎</span>
+      <h1>Mudslide Explorers!</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#start">Start Here</a></li>
+        <li><a href="#maps">Maps</a></li>
+        <li><a href="#earth">Google Earth</a></li>
+        <li><a href="#strategies">Safety Ideas</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <button id="audio-toggle" aria-pressed="false">🔊 Read Aloud</button>
+      <button id="font-toggle" aria-pressed="false">A+</button>
+      <button id="contrast-toggle" aria-pressed="false">🌗</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="start" class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h2 id="hero-title">Welcome, Soil Detectives!</h2>
+        <p>
+          Landslides happen when gravity wins and soil starts to slide. Today we
+          will learn what makes slopes fail and how experts keep them safe.
+          Ready to explore maps, science words, and smart fixes?
+        </p>
+        <a class="cta" href="#maps">Let's Explore!</a>
+      </div>
+      <div class="hero-illustration" aria-hidden="true">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f333.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="progress" aria-label="Progress steps">
+      <h3>Our Explorer Path</h3>
+      <ol>
+        <li>
+          <span class="step-number">1</span>
+          <span class="step-text">Spot risky slopes with maps</span>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <span class="step-text">Zoom in with Google Earth</span>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <span class="step-text">Pick the best safety plan</span>
+        </li>
+      </ol>
+    </section>
+
+    <section id="maps" class="maps" aria-labelledby="maps-title">
+      <div class="section-header">
+        <h2 id="maps-title">Interactive Map Hub</h2>
+        <p>
+          Scientists use colorful maps to learn where landslides might happen.
+          Try each map and read the helper cards for clues!
+        </p>
+      </div>
+
+      <div class="map-grid">
+        <article class="map-panel" aria-labelledby="ipcc-title">
+          <header>
+            <h3 id="ipcc-title">IPCC Interactive Atlas</h3>
+            <p class="field-word">Field word: <strong>Precipitation Extremes</strong></p>
+          </header>
+          <p>
+            Heavy rain can loosen soil. Use this atlas to check future rain
+            patterns. Tap the filters to show rainfall intensity and climate
+            scenarios.
+          </p>
+          <div class="iframe-wrapper" role="region" aria-label="IPCC Interactive Atlas">
+            <iframe
+              title="IPCC Interactive Atlas"
+              loading="lazy"
+              src="https://interactive-atlas.ipcc.ch/"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <ul class="helper-list">
+            <li>Click Layers → Hazards → Landslides.</li>
+            <li>Slide the time bar to compare today and future years.</li>
+            <li>Use the legend to match colors with stronger storms.</li>
+          </ul>
+          <a class="external-link" href="https://interactive-atlas.ipcc.ch/" target="_blank" rel="noopener">Open in a new tab</a>
+        </article>
+
+        <article class="map-panel" aria-labelledby="nasa-title">
+          <header>
+            <h3 id="nasa-title">NASA Landslide Viewer</h3>
+            <p class="field-word">Field word: <strong>Susceptibility</strong></p>
+          </header>
+          <p>
+            Susceptibility shows how likely a place is to slide. Warmer colors
+            mean steeper and wetter slopes that need extra care.
+          </p>
+          <div class="iframe-wrapper" role="region" aria-label="NASA Landslide Viewer">
+            <iframe
+              title="NASA Landslide Viewer"
+              loading="lazy"
+              src="https://maps.disasters.nasa.gov/arcgis/apps/webappviewer/index.html?id=8807b55c35f64b3191f40d79d384bc1d"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="legend">
+            <span class="legend-item legend-low">Safe-ish</span>
+            <span class="legend-item legend-medium">Watch</span>
+            <span class="legend-item legend-high">Careful</span>
+          </div>
+          <ul class="helper-list">
+            <li>Zoom to see towns and rivers.</li>
+            <li>Tap the layers icon to turn on rainfall or soil data.</li>
+            <li>Look for schools or roads in orange or red zones.</li>
+          </ul>
+          <a class="external-link" href="https://landslides.nasa.gov/viewer" target="_blank" rel="noopener">Open in a new tab</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="earth" class="earth" aria-labelledby="earth-title">
+      <div class="section-header">
+        <h2 id="earth-title">Fly There with Google Earth</h2>
+        <p>
+          Pick a hotspot or type a place to visit. Google Earth lets you tilt,
+          zoom, and spy the shape of hills.
+        </p>
+      </div>
+      <form class="earth-form" aria-label="Google Earth launcher">
+        <label for="earth-search">Type a city, mountain, or park:</label>
+        <input id="earth-search" name="earth-search" type="text" placeholder="Example: Seattle, USA" />
+        <button type="submit">Fly in Google Earth</button>
+      </form>
+      <div class="hotspots" aria-label="Suggested hotspots">
+        <h3>Try these hotspots:</h3>
+        <div class="chips" role="list">
+          <button type="button" role="listitem" data-coords="46.8523,-121.7603">Mount Rainier, USA</button>
+          <button type="button" role="listitem" data-coords="27.9878,86.9250">Himalayas, Nepal</button>
+          <button type="button" role="listitem" data-coords="-16.4897,-68.1193">La Paz, Bolivia</button>
+          <button type="button" role="listitem" data-coords="35.3606,138.7274">Mount Fuji, Japan</button>
+        </div>
+      </div>
+      <p class="safety-note">Ask a trusted adult to explore with you and zoom safely.</p>
+    </section>
+
+    <section class="causes" aria-labelledby="causes-title">
+      <div class="section-header">
+        <h2 id="causes-title">Why Do Slopes Fail?</h2>
+        <p>
+          Experts look for warning signs. Tap each cause to learn the fancy term
+          and what it means in kid language.
+        </p>
+      </div>
+      <div class="cause-grid">
+        <button class="cause-card" type="button" data-cause="infiltration">
+          <span class="cause-term">Hydrologic Infiltration</span>
+          <span class="cause-explain">Water sneaks into the ground and makes soil heavy and slippery.</span>
+        </button>
+        <button class="cause-card" type="button" data-cause="erosion">
+          <span class="cause-term">Toe Erosion</span>
+          <span class="cause-explain">Waves or rivers scoop dirt from the bottom of a hill, so it can't hold itself up.</span>
+        </button>
+        <button class="cause-card" type="button" data-cause="earthquake">
+          <span class="cause-term">Seismic Loading</span>
+          <span class="cause-explain">Earthquakes shake the slope so hard that the soil loses its grip.</span>
+        </button>
+        <button class="cause-card" type="button" data-cause="human">
+          <span class="cause-term">Anthropogenic Modification</span>
+          <span class="cause-explain">People cut into hills for roads or houses, taking away natural support.</span>
+        </button>
+        <button class="cause-card" type="button" data-cause="weathering">
+          <span class="cause-term">Weathering</span>
+          <span class="cause-explain">Sun, wind, and ice break rocks into loose pieces that can slide.</span>
+        </button>
+        <button class="cause-card" type="button" data-cause="vegetation">
+          <span class="cause-term">Vegetation Loss</span>
+          <span class="cause-explain">Without roots, soil can't stay stitched together.</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="strategies" class="strategies" aria-labelledby="strategies-title">
+      <div class="section-header">
+        <h2 id="strategies-title">Slope Safety Strategies</h2>
+        <p>
+          These ideas come from field scientists and engineers in the USGS
+          landslide mitigation guide. Read the real-world term and the kid
+          helper sentence.
+        </p>
+      </div>
+
+      <div class="strategy-controls" aria-label="Strategy filters">
+        <button type="button" class="filter-button active" data-filter="all">All Slopes</button>
+        <button type="button" class="filter-button" data-filter="steep">Steep Hills</button>
+        <button type="button" class="filter-button" data-filter="wet">Rainy &amp; Wet</button>
+        <button type="button" class="filter-button" data-filter="urban">Places with Buildings</button>
+      </div>
+
+      <div class="strategy-grid">
+        <article class="strategy-card" data-tags="steep wet">
+          <h3>Surface Drainage Networks</h3>
+          <p>
+            Engineers build ditches and channels so rainwater flows away quickly.
+            Think of it as giving the hill gutters so it doesn't get soaked.
+          </p>
+          <ul>
+            <li>Use lined ditches or swales.</li>
+            <li>Keep leaves and trash out.</li>
+            <li>Check after storms for clogs.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="steep">
+          <h3>Soil Nailing</h3>
+          <p>
+            Long steel bars are drilled into the slope to stitch layers of soil
+            together—like giant safety pins holding a blanket.
+          </p>
+          <ul>
+            <li>Add shotcrete (sprayed concrete) for extra armor.</li>
+            <li>Works well for road cuts and tall slopes.</li>
+            <li>Needs experts to check nail tension.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="urban">
+          <h3>Retaining Structures</h3>
+          <p>
+            Gravity walls, mechanically stabilized earth (MSE) walls, and soil
+            buttresses keep the bottom of a slope strong—like pushing back with a
+            sturdy bookshelf.
+          </p>
+          <ul>
+            <li>Include drainage holes (weep holes).</li>
+            <li>Inspect for cracks and bulges.</li>
+            <li>Plant shrubs at the top to reduce erosion.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="wet">
+          <h3>Subsurface Drains</h3>
+          <p>
+            Perforated pipes and gravel trenches carry hidden water away from
+            inside the hill so it stays light and stable.
+          </p>
+          <ul>
+            <li>Pair with monitoring wells.</li>
+            <li>Keep outlet pipes clear.</li>
+            <li>Use filters to stop soil from clogging.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="steep urban">
+          <h3>Geosynthetic Reinforcement</h3>
+          <p>
+            Special fabric layers called geotextiles act like superhero capes,
+            giving soil extra strength so it can't slide away.
+          </p>
+          <ul>
+            <li>Used in embankments and highway slopes.</li>
+            <li>Combine with compacted fill.</li>
+            <li>Check overlaps to avoid weak spots.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="wet">
+          <h3>Early Warning Systems</h3>
+          <p>
+            Rain gauges, ground sensors, and sirens tell people when to move away
+            before a slide starts—like a weather alarm for hills.
+          </p>
+          <ul>
+            <li>Use thresholds for intense rainfall.</li>
+            <li>Connect alerts to local emergency teams.</li>
+            <li>Practice evacuation routes.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="steep">
+          <h3>Regrading &amp; Terracing</h3>
+          <p>
+            Slope angles are reshaped into gentle steps so gravity has a smaller
+            pull—imagine turning a slide into a staircase.</p>
+          <ul>
+            <li>Compact each terrace layer.</li>
+            <li>Install drains at each bench.</li>
+            <li>Seed with deep-rooted plants.</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card" data-tags="wet urban">
+          <h3>Vegetative Bioengineering</h3>
+          <p>
+            Live stakes, brush layering, and coir logs use plants as building
+            blocks. Roots tie soil together and drink extra water.
+          </p>
+          <ul>
+            <li>Choose native species.</li>
+            <li>Water young plants until roots grow deep.</li>
+            <li>Combine with mulch to prevent erosion.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="source-note">
+        Strategy summaries adapted from the USGS Open-File Report 2022-1075.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made for curious 2nd graders exploring real-world earth science tools.</p>
+  </footer>
+
+  <audio id="narration" preload="none">
+    <source src="audio/narration.mp3" type="audio/mpeg" />
+  </audio>
+  <script src="scripts.js"></script>
+</body>
+</html>
