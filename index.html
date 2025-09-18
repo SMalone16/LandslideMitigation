@@ -84,24 +84,20 @@
             patterns. Tap the filters to show rainfall intensity and climate
             scenarios.
           </p>
-          <div class="iframe-wrapper" role="region" aria-label="IPCC Interactive Atlas">
-            <iframe
-              id="ipcc-frame"
-              title="IPCC Interactive Atlas"
-              loading="lazy"
-              src="https://interactive-atlas.ipcc.ch/regional-information"
-              allowfullscreen
-            ></iframe>
-            <div id="ipcc-fallback" class="iframe-fallback" hidden>
-              <p>
-                If the atlas does not appear, tap the button below to open it in a
-                new tab. Some browsers block this map from loading inside other
-                pages.
-              </p>
-              <a class="external-link" href="https://interactive-atlas.ipcc.ch/regional-information" target="_blank" rel="noopener"
-                >Open the IPCC Interactive Atlas</a
-              >
-            </div>
+          <div class="iframe-wrapper" role="region" aria-label="IPCC Interactive Atlas preview">
+            <a
+              class="iframe-placeholder"
+              href="https://interactive-atlas.ipcc.ch/regional-information"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="https://www.sciencealert.com/images/2021-08/IPCCAtlasScreenshot.jpg"
+                alt="Preview of the IPCC Interactive Atlas showing precipitation projections across the globe."
+                loading="lazy"
+              />
+              <span class="iframe-placeholder__label">Tap to open the Interactive Atlas</span>
+            </a>
           </div>
           <ul class="helper-list">
             <li>Click Layers → Hazards → Landslides.</li>
@@ -120,13 +116,12 @@
             Susceptibility shows how likely a place is to slide. Warmer colors
             mean steeper and wetter slopes that need extra care.
           </p>
-          <div class="iframe-wrapper" role="region" aria-label="NASA Landslide Viewer">
-            <iframe
-              title="NASA Landslide Viewer"
+          <div class="iframe-wrapper" role="region" aria-label="NASA Landslide Susceptibility Map">
+            <img
+              src="https://eoimages.gsfc.nasa.gov/images/imagerecords/89000/89937/globalsuseptibility_mod_2000-2013_lrg.jpg"
+              alt="Global map of landslide susceptibility created by NASA, showing warmer colors for higher risk areas."
               loading="lazy"
-              src="https://maps.disasters.nasa.gov/arcgis/apps/webappviewer/index.html?id=8807b55c35f64b3191f40d79d384bc1d"
-              allowfullscreen
-            ></iframe>
+            />
           </div>
           <div class="legend">
             <span class="legend-item legend-low">Safe-ish</span>
