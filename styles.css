@@ -223,7 +223,6 @@ section {
   color: var(--accent-dark);
 }
 
-
 .iframe-wrapper {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -255,7 +254,6 @@ section {
 .iframe-fallback .external-link {
   margin: 0;
 }
-
 .helper-list {
   margin: 0;
   padding-left: 1.2rem;
