@@ -302,17 +302,57 @@ section {
   color: #fff;
 }
 
-.legend-low {
-  background: #3fb950;
+.legend-safe {
+  background: #3c1a6e;
+  color: #f4efff;
 }
 
-.legend-medium {
-  background: #f2c744;
-  color: #523500;
+.legend-low {
+  background: #f0892a;
 }
 
 .legend-high {
-  background: #d73a4a;
+  background: #fff4bf;
+  color: #4b3a00;
+  box-shadow: inset 0 0 8px rgba(75, 58, 0, 0.25);
+}
+
+.viewer-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.viewer-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 25px rgba(240, 138, 42, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.viewer-button:hover,
+.viewer-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(240, 138, 42, 0.4);
+}
+
+.viewer-directions {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: rgba(27, 42, 59, 0.05);
+}
+
+.viewer-directions h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
 }
 
 .earth {
