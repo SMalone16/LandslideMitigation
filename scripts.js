@@ -7,6 +7,7 @@ const strategyCards = document.querySelectorAll('.strategy-card');
 const earthForm = document.querySelector('.earth-form');
 const earthInput = document.getElementById('earth-search');
 const hotspotButtons = document.querySelectorAll('.hotspots button');
+const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
 const causeCards = document.querySelectorAll('.cause-card');
 const ipccFrame = document.getElementById('ipcc-frame');
 const ipccFallback = document.getElementById('ipcc-fallback');
@@ -92,6 +93,56 @@ strategyButtons.forEach((button) => {
   });
 });
 
+function buildEarthWebUrl({ latitude, longitude, altitude, query }) {
+  if (query) {
+    return `https://earth.google.com/web/search/${encodeURIComponent(query)}`;
+  }
+
+  const lat = Number(latitude);
+  const lon = Number(longitude);
+  const safeAltitude = Math.max(Number(altitude) || 5000, 500);
+  if (Number.isFinite(lat) && Number.isFinite(lon)) {
+    return `https://earth.google.com/web/@${lat},${lon},${safeAltitude}a,0d,60y,0h,0t,0r`;
+  }
+
+  return 'https://earth.google.com/web';
+}
+
+function openGoogleEarthDestination({ latitude, longitude, altitude, query, label }) {
+  const destinationUrl = buildEarthWebUrl({ latitude, longitude, altitude, query });
+
+  if (isIOSDevice) {
+    const iosParams = [];
+    if (Number.isFinite(Number(latitude)) && Number.isFinite(Number(longitude))) {
+      iosParams.push(`ll=${Number(latitude)},${Number(longitude)}`);
+    }
+    const searchLabel = label || query;
+    if (searchLabel) {
+      iosParams.push(`q=${encodeURIComponent(searchLabel)}`);
+    }
+
+    if (iosParams.length > 0) {
+      const iosUrl = `comgoogleearth://?${iosParams.join('&')}`;
+      const iosWindow = window.open(iosUrl, '_blank');
+      if (!iosWindow) {
+        window.location.href = iosUrl;
+      }
+      window.setTimeout(() => {
+        const fallbackWindow = window.open(destinationUrl, '_blank', 'noopener');
+        if (!fallbackWindow) {
+          window.location.href = destinationUrl;
+        }
+      }, 1200);
+      return;
+    }
+  }
+
+  const webWindow = window.open(destinationUrl, '_blank', 'noopener');
+  if (!webWindow) {
+    window.location.href = destinationUrl;
+  }
+}
+
 if (earthForm) {
   earthForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -100,19 +151,20 @@ if (earthForm) {
       alert('Type a place to visit in Google Earth!');
       return;
     }
-    const url = new URL('https://earth.google.com/web');
-    url.searchParams.set('q', query);
-    window.open(url.toString(), '_blank', 'noopener');
+    openGoogleEarthDestination({ query });
   });
 }
 
 hotspotButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const coords = button.dataset.coords;
-    if (!coords) return;
-    const url = new URL('https://earth.google.com/web');
-    url.searchParams.set('flyto', coords);
-    window.open(url.toString(), '_blank', 'noopener');
+    if (!coords) {
+      return;
+    }
+    const [latitude, longitude] = coords.split(',').map((value) => value.trim());
+    const altitude = button.dataset.alt;
+    const label = button.dataset.label || button.textContent.trim();
+    openGoogleEarthDestination({ latitude, longitude, altitude, label });
   });
 });
 
