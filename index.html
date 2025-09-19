@@ -123,17 +123,29 @@
               loading="lazy"
             />
           </div>
-          <div class="legend">
-            <span class="legend-item legend-low">Safe-ish</span>
-            <span class="legend-item legend-medium">Watch</span>
-            <span class="legend-item legend-high">Careful</span>
+          <div class="legend" aria-label="Landslide risk legend">
+            <span class="legend-item legend-safe">Safe</span>
+            <span class="legend-item legend-low">Low Risk</span>
+            <span class="legend-item legend-high">High Risk</span>
           </div>
-          <ul class="helper-list">
-            <li>Zoom to see towns and rivers.</li>
-            <li>Tap the layers icon to turn on rainfall or soil data.</li>
-            <li>Look for schools or roads in orange or red zones.</li>
-          </ul>
-          <a class="external-link" href="https://landslides.nasa.gov/viewer" target="_blank" rel="noopener">Open in a new tab</a>
+          <div class="viewer-actions">
+            <a
+              class="viewer-button"
+              href="https://landslides.nasa.gov/viewer"
+              target="_blank"
+              rel="noopener"
+            >
+              Launch NASA Landslide Viewer
+            </a>
+          </div>
+          <div class="viewer-directions">
+            <h4>How to explore the map</h4>
+            <ul class="helper-list">
+              <li>Zoom to see towns and rivers.</li>
+              <li>Tap the layers icon to turn on rainfall or soil data.</li>
+              <li>Look for schools or roads in orange or glowing light zones.</li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
